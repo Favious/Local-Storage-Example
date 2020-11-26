@@ -7,6 +7,26 @@ if (typeof (localStorage) == 'undefined') {
     }
 }
 
+if (typeof (sessionStorage) == 'undefined') {
+    alert('Tu navegador no soporta Session Storage.');
+} else {
+    if (sessionStorage.getItem("name") != null) {
+        getName = sessionStorage.name;
+	document.getElementById("topItems").innerHTML = "<h2>" + getName + "</h2>";
+    }
+}
+
+function obtenerNombre() {
+    let texto = document.getElementById("textField");
+    cambiarNombre(texto.value);
+}
+
+function cambiarNombre(nom) {
+    let setName = nom;
+    document.getElementById("topItems").innerHTML = "<h2>" + setName + "</h2>";
+    sessionStorage.setItem("name", setName);
+}
+
 function cambiarColor(n) {
     let setColour;
     if(n == 1) setColour = "#82c8a0";
@@ -15,7 +35,6 @@ function cambiarColor(n) {
     if(n == 4) setColour = "#cb99c5";
     if(n == 5) setColour = "#7fccde";
     if(n == 6) setColour = "#f0d264"; 
-    localStorage.removeItem('background');
     document.body.style.backgroundColor = setColour;
     localStorage.setItem("background", setColour);
 }

@@ -16,9 +16,10 @@ body {
 	display: inline;
 }
 h2 {
-	color: #89867e;
+	color: white;
 	text-align: center;
 	font-weight: 300;
+	font-size: 100px;
 }
 .color {
 	width: 350px;
